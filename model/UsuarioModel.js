@@ -48,4 +48,23 @@ const criarUsuario = async (
         senha
     ]);
     return resultado;
-}
+};
+
+
+const buscarUsuarios = async () => {
+    const sql =
+        SELECT
+             id_usuario,
+             nome,
+             email,
+             telefone,
+             cep,
+             endereco,
+             numero,
+             complemento,
+             bairro,
+             cidade,
+             estado,
+             login,
+          FROM usuarios
+        ;
