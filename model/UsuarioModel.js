@@ -14,7 +14,7 @@ const criarUsuario = async (
     login,
     senha
 ) => {
-    const sql = `INSERT INTO
+    const sql = `INSERT INTO usuarios
                  (
                     nome,
                     email,
@@ -51,7 +51,7 @@ const criarUsuario = async (
 
 
 const buscarUsuarios = async () => {
-    const sql =
+    const sql = `
         SELECT
              id_usuario,
              nome,
@@ -64,18 +64,19 @@ const buscarUsuarios = async () => {
              bairro,
              cidade,
              estado,
-             login,
+             login
+             
           FROM usuarios
         `;
 
       const [usuarios] = await db.execute(sql);
 
       return usuarios;
-);
+};
 
 const buscarPorLogin = async (login) => {
 
-      const sql =
+      const sql = `
            SELECT *
            FROM usuarios
            WHERE login = ?
@@ -84,10 +85,10 @@ const buscarPorLogin = async (login) => {
     const [usuarios] = await db.execute(sql, [login]);
 
     return usuarios[0];
-);
+};
 
 module.exports = {
     criarUsuario,
-    buscarUsuario,
+    buscarUsuarios,
     buscarPorLogin
-);        
+};
