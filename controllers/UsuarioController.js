@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const usuarioModel =
-    require("../models/UsuarioModel");
+    require("../model/UsuarioModel");
 
 const limites = {
     nome: 100,
